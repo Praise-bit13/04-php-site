@@ -313,6 +313,24 @@ a { color: inherit; }
 .form-alert-success { border: 1px solid #b9d8c2; background: #edf7ef; color: #245c37; }
 .form-alert-error { border: 1px solid #edc1bd; background: #fff3f1; color: #8d1c13; }
 
+.messages-login { max-width: 520px; padding: 32px; border: 1px solid var(--line); border-radius: 18px; }
+.messages-login h2, .messages-heading h2 { margin-bottom: 10px; font-size: clamp(26px, 4vw, 36px); }
+.messages-login > p { color: var(--muted); }
+.messages-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.messages-heading .eyebrow { margin-bottom: 7px; }
+.messages-heading h2 { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.count-badge { display: inline-grid; min-width: 32px; height: 32px; place-items: center; padding-inline: 8px; border-radius: 999px; background: var(--mint); color: var(--green-dark); font: 700 14px 'DM Sans', sans-serif; letter-spacing: 0; }
+.button-outline { border: 1px solid var(--green); background: transparent; color: var(--green-dark); cursor: pointer; font: inherit; }
+.button-outline:hover { background: var(--mint); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; }
+.messages-table { width: 100%; border-collapse: collapse; text-align: left; }
+.messages-table th, .messages-table td { padding: 14px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.messages-table th { background: var(--cream); color: var(--green-dark); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+.messages-table td { color: var(--muted); font-size: 14px; }
+.messages-table tr:last-child td { border-bottom: 0; }
+.message-cell { min-width: 220px; max-width: 360px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.empty-state { padding: 28px; border-radius: 14px; background: var(--cream); color: var(--muted); text-align: center; }
+
 .site-footer { padding-block: 24px; border-top: 1px solid var(--line); }
 .footer-inner { justify-content: space-between; gap: 20px; color: var(--muted); font-size: 13px; }
 .footer-inner p { margin: 0; }
@@ -338,6 +356,7 @@ a { color: inherit; }
     .page-hero { padding-block: 62px; }
     .story-layout, .contact-layout { grid-template-columns: 1fr; gap: 38px; }
     .service-detail { grid-template-columns: 1fr; gap: 20px; }
+    .messages-heading { align-items: flex-start; flex-direction: column; }
     .story-accent { min-height: 240px; }
     .service-item { grid-template-columns: 42px 1fr; gap: 12px; }
     .callout-inner { align-items: flex-start; flex-direction: column; }
