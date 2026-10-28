@@ -312,6 +312,7 @@ a { color: inherit; }
 .form-alert { margin-top: 28px; padding: 14px 16px; border-radius: 10px; }
 .form-alert-success { border: 1px solid #b9d8c2; background: #edf7ef; color: #245c37; }
 .form-alert-error { border: 1px solid #edc1bd; background: #fff3f1; color: #8d1c13; }
+.form-alert-warning { border: 1px solid #ead29a; background: #fff9e9; color: #735515; }
 
 .messages-login { max-width: 520px; padding: 32px; border: 1px solid var(--line); border-radius: 18px; }
 .messages-login h2, .messages-heading h2 { margin-bottom: 10px; font-size: clamp(26px, 4vw, 36px); }
@@ -334,6 +335,7 @@ a { color: inherit; }
 .site-footer { padding-block: 24px; border-top: 1px solid var(--line); }
 .footer-inner { justify-content: space-between; gap: 20px; color: var(--muted); font-size: 13px; }
 .footer-inner p { margin: 0; }
+.footer-inner .page-view-count { color: var(--muted); }
 .footer-inner a { color: var(--green-dark); text-decoration: none; }
 .footer-inner a:hover { text-decoration: underline; }
 

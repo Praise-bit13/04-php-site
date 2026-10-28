@@ -1,0 +1,4 @@
+/vendor/
+/.env
+/storage/messages.jsonl
+/storage/page-views.json

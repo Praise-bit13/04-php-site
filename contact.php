@@ -8,6 +8,9 @@ require_once __DIR__ . '/includes/config.php';
 require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/data.php';
 
+$sentNotice = $_SESSION['contact_notice'] ?? null;
+unset($_SESSION['contact_notice']);
+
 if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -94,6 +97,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 error_log('Contact form submission could not be fully written to storage.');
                 $errors['form'] = 'We could not save your message right now. Please try again later.';
             } else {
+                try {
+                    sendContactEmail($submission);
+                    $_SESSION['contact_notice'] = [
+                        'type' => 'success',
+                        'message' => 'Thanks for getting in touch. Your message has been received and an email notification was sent.',
+                    ];
+                } catch (RuntimeException|\PHPMailer\PHPMailer\Exception $exception) {
+                    error_log('Contact form email notification failed: ' . $exception->getMessage());
+                    $_SESSION['contact_notice'] = [
+                        'type' => 'warning',
+                        'message' => 'Your message was saved, but we could not send the email notification. Please contact us directly if your request is urgent.',
+                    ];
+                }
+
                 header('Location: contact.php?sent=1');
                 exit;
             }
@@ -127,9 +144,9 @@ require_once __DIR__ . '/includes/header.php';
                 <p>Monday to Friday, 9:00 am – 5:00 pm</p>
             </div>
 
-            <?php if ($isSent): ?>
-                <div class="form-alert form-alert-success" role="status">
-                    Thanks for getting in touch. Your message has been received.
+            <?php if ($isSent && is_array($sentNotice) && is_string($sentNotice['message'] ?? null)): ?>
+                <div class="form-alert <?= ($sentNotice['type'] ?? '') === 'warning' ? 'form-alert-warning' : 'form-alert-success' ?>" role="status">
+                    <?= e($sentNotice['message']) ?>
                 </div>
             <?php endif; ?>
 

@@ -1,5 +1,10 @@
 <?php
 declare(strict_types=1);
+
+$pageViewCount = incrementPageView(
+    basename($_SERVER['PHP_SELF']),
+    __DIR__ . '/../storage'
+);
 ?>
 <!doctype html>
 <html lang="en">
