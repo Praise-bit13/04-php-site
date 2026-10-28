@@ -1,6 +1,9 @@
 <?php
+declare(strict_types=1);
+
 $pageTitle = 'Contact';
 require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/functions.php';
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -20,7 +23,7 @@ require_once __DIR__ . '/includes/header.php';
             <p>Whether you know exactly what you need or just want to explore your options, drop us a line. We're happy to help.</p>
             <div class="contact-detail">
                 <span class="detail-label">Email</span>
-                <a href="mailto:<?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8') ?>"><?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8') ?></a>
+                <a href="mailto:<?= e($contactEmail) ?>"><?= e($contactEmail) ?></a>
             </div>
             <div class="contact-detail">
                 <span class="detail-label">When we're available</span>
@@ -31,7 +34,7 @@ require_once __DIR__ . '/includes/header.php';
             <span class="note-mark" aria-hidden="true">“</span>
             <h3>A clean start begins with a conversation.</h3>
             <p>Email us with a few details about your space, the service you're interested in and a good time to reach you.</p>
-            <a class="button" href="mailto:<?= htmlspecialchars($contactEmail, ENT_QUOTES, 'UTF-8') ?>">Email Prime Cleaners <span aria-hidden="true">&rarr;</span></a>
+            <a class="button" href="mailto:<?= e($contactEmail) ?>">Email Prime Cleaners <span aria-hidden="true">&rarr;</span></a>
         </aside>
     </div>
 </section>

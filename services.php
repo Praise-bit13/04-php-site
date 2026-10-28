@@ -1,6 +1,10 @@
 <?php
+declare(strict_types=1);
+
 $pageTitle = 'Services';
 require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -13,23 +17,10 @@ require_once __DIR__ . '/includes/header.php';
 </section>
 
 <section class="section">
-    <div class="container service-list">
-        <article class="service-item">
-            <span class="service-number">01</span>
-            <div><h2>Regular home cleaning</h2><p>A reliable refresh for the rooms you use every day. Choose a weekly, fortnightly or monthly visit.</p><p class="service-includes"><strong>May include:</strong> kitchen and bathroom surfaces, dusting, floors and general tidying.</p></div>
-        </article>
-        <article class="service-item">
-            <span class="service-number">02</span>
-            <div><h2>Deep cleaning</h2><p>Give your home or workplace extra attention with a thorough, one-off clean focused on the details.</p><p class="service-includes"><strong>May include:</strong> detailed dusting, hard-to-reach areas and a more intensive clean of high-use spaces.</p></div>
-        </article>
-        <article class="service-item">
-            <span class="service-number">03</span>
-            <div><h2>Office cleaning</h2><p>Keep your workplace tidy, fresh and ready for the day, with visits arranged to suit your working hours.</p><p class="service-includes"><strong>May include:</strong> shared areas, kitchens, washrooms, desks and floors.</p></div>
-        </article>
-        <article class="service-item">
-            <span class="service-number">04</span>
-            <div><h2>Move-in and move-out cleaning</h2><p>Make moving day a little lighter with a detailed clean before you settle in or hand over the keys.</p><p class="service-includes"><strong>May include:</strong> empty-room cleaning, cupboards, surfaces, bathrooms and kitchen areas.</p></div>
-        </article>
+    <div class="container service-card-grid">
+        <?php foreach ($services as $service): ?>
+            <?= renderServiceCard($service) ?>
+        <?php endforeach; ?>
     </div>
 </section>
 

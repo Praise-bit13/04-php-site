@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 $siteName = 'Prime Cleaners Ltd';
 $tagline = 'A brighter, fresher space — without the hassle.';

@@ -1,6 +1,10 @@
 <?php
+declare(strict_types=1);
+
 $pageTitle = 'About';
 require_once __DIR__ . '/includes/config.php';
+require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/includes/data.php';
 require_once __DIR__ . '/includes/header.php';
 ?>
 
@@ -39,6 +43,26 @@ require_once __DIR__ . '/includes/header.php';
             <article><h3>People first</h3><p>We treat your space, your time and your preferences with respect.</p></article>
             <article><h3>Thoughtful work</h3><p>We take care with the details and adapt our clean to your priorities.</p></article>
             <article><h3>Clear communication</h3><p>Friendly, straightforward conversations from your first enquiry onward.</p></article>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="eyebrow">The people behind the polish</p>
+            <h2>Meet our team.</h2>
+            <p>Friendly faces, thoughtful service and care in every detail.</p>
+        </div>
+        <div class="team-grid">
+            <?php foreach ($team as $member): ?>
+                <article class="team-card">
+                    <span class="team-avatar" aria-hidden="true"><?= e(substr($member['name'], 0, 1)) ?></span>
+                    <h3><?= e($member['name']) ?></h3>
+                    <p class="team-role"><?= e($member['role']) ?></p>
+                    <p><?= e($member['bio']) ?></p>
+                </article>
+            <?php endforeach; ?>
         </div>
     </div>
 </section>

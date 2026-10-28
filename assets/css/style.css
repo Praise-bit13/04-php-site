@@ -248,7 +248,25 @@ a { color: inherit; }
 .value-grid h3 { margin-bottom: 9px; font-size: 19px; }
 .value-grid p { margin: 0; color: var(--muted); font-size: 14px; }
 
-.service-list { max-width: 900px; }
+.service-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.service-card, .team-card { padding: 28px; border: 1px solid var(--line); border-radius: 18px; background: var(--white); }
+.service-card { display: flex; min-height: 290px; flex-direction: column; align-items: flex-start; }
+.service-card-icon, .service-detail-icon { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 16px; background: var(--mint); font-size: 26px; }
+.service-card h2 { margin: 22px 0 10px; font-size: 21px; }
+.service-card > p:not(.service-card-price) { margin-bottom: 16px; color: var(--muted); font-size: 14px; }
+.service-card-price { margin: auto 0 12px; color: var(--green-dark); font-weight: 700; }
+.service-detail { display: grid; grid-template-columns: 90px 1fr; gap: 28px; align-items: start; max-width: 850px; }
+.service-detail-icon { width: 76px; height: 76px; border-radius: 22px; font-size: 38px; }
+.service-detail h2 { margin-bottom: 12px; font-size: clamp(30px, 4vw, 42px); }
+.service-detail p:not(.eyebrow) { max-width: 650px; color: var(--muted); }
+.service-detail .service-detail-price { color: var(--green-dark); font-size: 20px; font-weight: 700; }
+.team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.team-card { padding: 24px; }
+.team-avatar { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--mint); color: var(--green-dark); font: 700 20px 'Manrope', sans-serif; }
+.team-card h3 { margin: 20px 0 4px; font-size: 18px; }
+.team-card p { margin-bottom: 0; color: var(--muted); font-size: 13px; }
+.team-card .team-role { margin-bottom: 12px; color: var(--green); font-size: 12px; font-weight: 700; }
+
 .service-item { display: grid; grid-template-columns: 70px 1fr; gap: 20px; padding-block: 32px; border-bottom: 1px solid var(--line); }
 .service-item:first-child { padding-top: 0; }
 .service-item h2 { margin-bottom: 10px; font-size: 25px; }
@@ -289,13 +307,15 @@ a { color: inherit; }
     .hero-content { padding-block: 76px; }
     .hero h1 { font-size: clamp(46px, 12vw, 68px); }
     .section { padding-block: 68px; }
-    .card-grid, .value-grid { grid-template-columns: 1fr; gap: 14px; }
+    .card-grid, .value-grid, .service-card-grid { grid-template-columns: 1fr; gap: 14px; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
     .card { min-height: 0; }
     .promise-inner { grid-template-columns: 1fr; gap: 22px; }
     .promise h2 { font-size: 34px; }
     .promise-inner .button { justify-self: start; }
     .page-hero { padding-block: 62px; }
     .story-layout, .contact-layout { grid-template-columns: 1fr; gap: 38px; }
+    .service-detail { grid-template-columns: 1fr; gap: 20px; }
     .story-accent { min-height: 240px; }
     .service-item { grid-template-columns: 42px 1fr; gap: 12px; }
     .callout-inner { align-items: flex-start; flex-direction: column; }
@@ -305,6 +325,7 @@ a { color: inherit; }
     .brand small { max-width: 240px; }
     .hero-note span { padding-inline: 3px; }
     .footer-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
+    .team-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {
